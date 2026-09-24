@@ -1,0 +1,17 @@
+# Runtime dependencies for the training, evaluation, and preprocessing entry points.
+# PyTorch and Torchaudio must use matching CPU/CUDA builds.
+torch==2.6.0
+torchaudio==2.6.0
+
+# AF3 language/audio backbone and LoRA adapter loading.
+transformers==4.46.3
+huggingface-hub==0.36.0
+accelerate==1.1.1
+peft==0.13.2
+safetensors==0.7.0
+
+# Audio features, tensor reshaping, and progress reporting.
+numpy==2.3.5
+soundfile==0.13.1
+einops==0.8.2
+tqdm==4.67.3
