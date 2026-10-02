@@ -2,6 +2,7 @@
 
 [![Hugging Face Dataset](https://img.shields.io/badge/HuggingFace-Dataset-1f8dd6?logo=huggingface&logoColor=white)](https://huggingface.co/datasets/PeacefulData/RMS-AQA)
 [![Challenge Website](https://img.shields.io/badge/RMS--AQA-Challenge%20Website-444444?logo=github&logoColor=white)](https://rmsaqachallenge.github.io)
+[![arXiv Paper](https://img.shields.io/badge/arXiv-Paper-57A63A?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2610.00935)
 
 RMS-AQA is a real-world multi-hop spatial audio question answering benchmark accepted as an **ICASSP 2027 Signal Processing Grand Challenge**. The benchmark evaluates whether audio-language models can identify what happened, where and when it happened, and how to respond to complex questions grounded in spatial audio.
 
@@ -161,4 +162,20 @@ cd rmsaqa-code
 conda create -n rms-aqa python=3.10 -y
 conda activate rms-aqa
 pip install -r requirements.txt
+```
+
+## Citation
+
+If you use RMS-AQA in your research, please cite:
+
+```bibtex
+@misc{chen2026rmsaqatwostagespatialaudio,
+      title={RMS-AQA: A Two-Stage Spatial Audio Question Answering Benchmark for Real-World Domestic Environments},
+      author={Peihao Chen and Qing Wang and Lichun Fan and Yufeng Hao and Zhifeng Kong and Mengyao Zhu and Hengyi Hong and Hang Chen and Hang Su and Yujie Jian and Chao-Han Huck Yang and Shichao Hu and Jun Du and Jian Luan and Ke Li},
+      year={2026},
+      eprint={2610.00935},
+      archivePrefix={arXiv},
+      primaryClass={cs.SD},
+      url={https://arxiv.org/abs/2610.00935}
+}
 ```
