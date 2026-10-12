@@ -150,6 +150,7 @@ To preserve the semantic capabilities of large audio-language models (LALMs), th
 │   └── resnet.py                         # Time-preserving ResNet blocks
 ├── eval_spatial_plugin.py                # Evaluate the spatial plug-in
 ├── preprocess_audio_features.py          # Pre-extract audio and spatial features
+├── score.py                              # Score a results file against the data directory
 ├── train_spatial_plugin.py               # Train the spatial plug-in
 └── requirements.txt                      # Python dependencies
 ```
