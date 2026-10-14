@@ -1,0 +1,18 @@
+# Additional backbones (Qwen3-Omni, AF3-Next, MiDashengLM).
+# Evaluated runtime metadata in this repository records PyTorch 2.4.1,
+# Transformers 5.13.1, Accelerate 1.14.0, and librosa 0.11.0.
+# Install this in a separate environment from requirements.txt (AF3 / Transformers 4).
+# Use matching PyTorch/Torchaudio builds for the target CUDA runtime.
+torch==2.4.1
+torchaudio==2.4.1
+transformers==5.13.1
+accelerate==1.14.0
+librosa==0.11.0
+peft>=0.14.0
+huggingface-hub>=0.36.0
+safetensors>=0.7.0
+numpy>=1.24
+soundfile>=0.13
+einops>=0.8
+tqdm>=4.67
+sentencepiece>=0.2

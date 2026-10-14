@@ -117,8 +117,6 @@ def evaluate_spatial_model(
                     "stage2_options": stage2_options,
                     "stage1_generated_text": outputs["stage1_text"][idx],
                     "stage2_generated_text": outputs["stage2_text"][idx],
-                    "stage1_gate": float(outputs["stage1_gate"][idx]),
-                    "stage2_gate": float(outputs["stage2_gate"][idx]),
                 }
                 if collect_predictions:
                     pred_records.append(record)

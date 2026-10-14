@@ -11,7 +11,7 @@ from safetensors.torch import load_file
 from transformers import AutoTokenizer, Qwen2ForCausalLM, WhisperConfig
 from transformers.models.whisper.modeling_whisper import WhisperEncoder
 
-from ..mcq import build_mcq_prompt_body
+from ..layered_mcq import build_mcq_prompt_body
 
 
 def enable_non_reentrant_gradient_checkpointing(model: nn.Module) -> None:

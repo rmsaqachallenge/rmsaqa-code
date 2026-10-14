@@ -133,18 +133,13 @@ To preserve the semantic capabilities of large audio-language models (LALMs), th
 │   ├── model.pdf                         
 │   └── model.png                         
 ├── spatial_af3/
-│   ├── __init__.py                      
-│   ├── dataset.py                        # Dataset loading and QA formatting
-│   ├── evaluation.py                     # Evaluation and inference routines
-│   ├── feature_ops.py                    # FOA and spatial feature operations
-│   ├── mcq.py                            # Multiple-choice question utilities
-│   ├── metrics.py                        # Accuracy and evaluation metrics
-│   ├── models/
-│   │   ├── __init__.py                   # Model package initialization
-│   │   ├── af3_generative_backbone.py    # AF3 generative backbone integration
-│   │   ├── spatial_encoder.py            # Spatial feature encoder
-│   │   └── spatial_generative.py         # Spatial generative model
-│   └── utils.py                          # Shared helper functions
+│   ├── dataset.py                        # AF3 dataset loading and QA formatting
+│   ├── evaluation.py                     # AF3 evaluation routines
+│   ├── metrics.py                        # Canonical AF3 metric definitions
+│   ├── layered_dataset.py                # Adapted-backbone dataset schema
+│   ├── layered_evaluation.py             # Adapted-backbone evaluation using AF3 metrics
+│   ├── midashenglm_*.py                  # MiDashengLM data, cache, and evaluation helpers
+│   └── models/                           # AF3, AF3-Next, Qwen3-Omni, MiDashengLM models
 ├── spatial_models/
 │   ├── conformer.py                      # Conformer sequence blocks
 │   └── resnet.py                         # Time-preserving ResNet blocks
@@ -152,7 +147,11 @@ To preserve the semantic capabilities of large audio-language models (LALMs), th
 ├── preprocess_audio_features.py          # Pre-extract audio and spatial features
 ├── score.py                              # Score a results file against the data directory
 ├── train_spatial_plugin.py               # Train the spatial plug-in
-└── requirements.txt                      # Python dependencies
+├── requirements.txt                      # AF3 / Transformers 4 dependencies
+├── requirements-transformers5.txt        # Qwen3-Omni, AF3-Next, MiDashengLM dependencies
+├── qwen3_omni/                           # Qwen3-Omni training and evaluation entry points
+├── af3_next/                             # AF3-Next training and evaluation entry points
+└── midashenglm/                          # MiDashengLM training, evaluation, preprocessing
 ```
 
 ## Installation
@@ -164,6 +163,24 @@ conda create -n rms-aqa python=3.10 -y
 conda activate rms-aqa
 pip install -r requirements.txt
 ```
+
+## Additional audio backbones
+
+The Qwen3-Omni, AF3-Next, and MiDashengLM release code is grouped by model under `qwen3_omni/`, `af3_next/`, and `midashenglm/`.
+
+The original AF3 baseline uses `requirements.txt` (Transformers 4.46.3). The three additional backbones use the recorded Transformers 5 runtime in `requirements-transformers5.txt`. Install each set in a separate Python environment.
+
+```bash
+# In a separate environment for Qwen3-Omni, AF3-Next, or MiDashengLM:
+pip install -r requirements-transformers5.txt
+```
+
+### Training and adapted-model evaluation
+
+Each backbone folder contains its training and adapted-evaluation entry points. Run them from this repository root; use each script's `--help` to see its options. Training requires the local model checkpoint, training and validation JSON files, feature cache, and output directory. Evaluation additionally requires the test JSON and trained checkpoint.
+
+All adapted-backbone evaluation reports use the AF3 score fields: `stage1_acc`, `stage2_acc_raw`, and `grounded_stage2_acc`. Training selects the best checkpoint with `overall.grounded_stage2_acc`.
+
 
 ## Citation
 

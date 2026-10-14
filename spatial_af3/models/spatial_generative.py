@@ -6,7 +6,7 @@ from typing import Dict, List, Optional, Sequence
 import torch
 import torch.nn as nn
 
-from ..mcq import build_mcq_prompt_body, format_mcq_target
+from ..layered_mcq import build_mcq_prompt_body, format_mcq_target
 from .af3_generative_backbone import FrozenAF3GenerativeBackbone
 from .spatial_encoder import ResnetConformerTokenEncoder
 
