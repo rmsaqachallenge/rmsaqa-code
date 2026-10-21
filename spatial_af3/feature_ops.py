@@ -110,7 +110,8 @@ class AudioFeatureExtractor:
         foa_waveform = self._pad_or_trim(foa_waveform, self.target_spatial_samples)
         stft = self._stft(foa_waveform)  # [4, F, T]
         power = stft.abs().pow(2)
-        w, x, y, z = stft[0], stft[1], stft[2], stft[3]
+        # Input FOA is ACN/SN3D (AmbiX): W, Y, Z, X.
+        w, y, z, x = stft[0], stft[1], stft[2], stft[3]
         denom = (power.sum(dim=0) + self.cfg.eps)
 
         logmel_channels = []
